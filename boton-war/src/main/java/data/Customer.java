@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Customer")
 @SequenceGenerator(name = "SEQ_CUSTOMER", sequenceName = "SEQ_CUSTOMER")
@@ -48,6 +49,26 @@ public class Customer implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idRole")
 	private Role role;
+
+	public Customer() {
+
+	}
+
+	public Customer(Long id, String rUN, String name, String lastName,
+			String address, int phone, String email, String password,
+			State state, Role role) {
+		super();
+		this.id = id;
+		RUN = rUN;
+		this.name = name;
+		this.lastName = lastName;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.password = password;
+		this.state = state;
+		this.role = role;
+	}
 
 	public State getState() {
 		return state;
@@ -88,14 +109,6 @@ public class Customer implements Serializable {
 			}
 		}
 		return true;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
 	}
 
 	public String getRUN() {
@@ -154,6 +167,16 @@ public class Customer implements Serializable {
 		this.password = password;
 	}
 
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";

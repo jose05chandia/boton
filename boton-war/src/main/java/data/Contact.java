@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Contact")
 @SequenceGenerator(name = "SEQ_CONTACT", sequenceName = "SEQ_CONTACT")
@@ -32,6 +33,20 @@ public class Contact implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCustomer")
 	private Customer customer;
+
+	public Contact() {
+
+	}
+
+	public Contact(Long id, String name, int phone, String email,
+			Customer customer) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.customer = customer;
+	}
 
 	public Customer getCustomer() {
 		return customer;

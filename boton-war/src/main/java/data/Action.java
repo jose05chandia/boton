@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Action")
 @SequenceGenerator(name = "SEQ_ACTION", sequenceName = "SEQ_ACTION")
@@ -19,6 +20,16 @@ public class Action implements Serializable {
 
 	@Column(name = "action")
 	private String action;
+
+	public Action() {
+
+	}
+
+	public Action(Long id, String action) {
+		super();
+		this.id = id;
+		this.action = action;
+	}
 
 	public Long getId() {
 		return this.id;

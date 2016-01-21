@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "CentralStatus")
 @SequenceGenerator(name = "SEQ_CENTRALSTATUS", sequenceName = "SEQ_CENTRALSTATUS")
@@ -19,6 +20,16 @@ public class CentralStatus implements Serializable {
 
 	@Column(name = "centralStatus")
 	private String centralStatus;
+
+	public CentralStatus() {
+
+	}
+
+	public CentralStatus(Long id, String centralStatus) {
+		super();
+		this.id = id;
+		this.centralStatus = centralStatus;
+	}
 
 	public Long getId() {
 		return this.id;

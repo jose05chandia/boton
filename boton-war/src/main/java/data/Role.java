@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Role")
 @SequenceGenerator(name = "SEQ_ROLE", sequenceName = "SEQ_ROLE")
@@ -19,6 +20,16 @@ public class Role implements Serializable {
 
 	@Column(name = "role")
 	private String role;
+
+	public Role() {
+
+	}
+
+	public Role(Long id, String role) {
+		super();
+		this.id = id;
+		this.role = role;
+	}
 
 	public Long getId() {
 		return this.id;

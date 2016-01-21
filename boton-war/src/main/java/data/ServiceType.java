@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "ServiceType")
 @SequenceGenerator(name = "SEQ_SERVICETYPE", sequenceName = "SEQ_SERVICETYPE")
@@ -29,6 +30,19 @@ public class ServiceType implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idAlert")
 	private Alert alert;
+
+	public ServiceType() {
+
+	}
+
+	public ServiceType(Long id, String serviceType, long genericPhone,
+			Alert alert) {
+		super();
+		this.id = id;
+		this.serviceType = serviceType;
+		this.genericPhone = genericPhone;
+		this.alert = alert;
+	}
 
 	public Alert getAlert() {
 		return alert;

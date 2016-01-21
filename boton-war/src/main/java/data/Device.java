@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Device")
 @SequenceGenerator(name = "SEQ_DEVICE", sequenceName = "SEQ_DEVICE")
@@ -39,6 +40,22 @@ public class Device implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idDeviceType")
 	private DeviceType deviceType;
+
+	public Device() {
+
+	}
+
+	public Device(Long id, String brand, String model, String operatingSystem,
+			String token, Customer customer, DeviceType deviceType) {
+		super();
+		this.id = id;
+		this.brand = brand;
+		this.model = model;
+		this.operatingSystem = operatingSystem;
+		this.token = token;
+		this.customer = customer;
+		this.deviceType = deviceType;
+	}
 
 	public Customer getCustomer() {
 		return customer;

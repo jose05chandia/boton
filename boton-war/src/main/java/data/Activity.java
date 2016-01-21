@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Activity")
 @SequenceGenerator(name = "SEQ_ACTIVITY", sequenceName = "SEQ_ACTIVITY")
@@ -17,9 +18,18 @@ public class Activity implements Serializable {
 	@GeneratedValue(generator = "SEQ_ACTIVITY", strategy = GenerationType.AUTO)
 	private Long id;
 
-
 	@Column(name = "activity")
 	private String activity;
+
+	public Activity() {
+
+	}
+
+	public Activity(Long id, String activity) {
+		super();
+		this.id = id;
+		this.activity = activity;
+	}
 
 	public Long getId() {
 		return this.id;
@@ -45,6 +55,14 @@ public class Activity implements Serializable {
 		}
 		return true;
 	}
+	
+	public String getActivity() {
+		return activity;
+	}
+
+	public void setActivity(String activity) {
+		this.activity = activity;
+	}
 
 	@Override
 	public int hashCode() {
@@ -54,13 +72,7 @@ public class Activity implements Serializable {
 		return result;
 	}
 
-	public String getActivity() {
-		return activity;
-	}
-
-	public void setActivity(String activity) {
-		this.activity = activity;
-	}
+	
 
 	@Override
 	public String toString() {

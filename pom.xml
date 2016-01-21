@@ -28,7 +28,6 @@
 	<modules>
 		
 		<module>boton-war</module>
-		<module>sgcc-war</module>
 	</modules>
 </project>
 <build>

@@ -49,6 +49,24 @@ public class Alert implements Serializable {
 	@JoinColumn(name = "idCentralStatus")
 	private CentralStatus centralStatus;
 
+	public Alert() {
+
+	}
+
+	public Alert(Long id, Date dateTimeStart, Date dateTimeEnd,
+			String latitude, String longitude, Customer customer,
+			CustomerStatus customerStatus, CentralStatus centralStatus) {
+		super();
+		this.id = id;
+		this.dateTimeStart = dateTimeStart;
+		this.dateTimeEnd = dateTimeEnd;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.customer = customer;
+		this.customerStatus = customerStatus;
+		this.centralStatus = centralStatus;
+	}
+
 	public Customer getCustomer() {
 		return customer;
 	}

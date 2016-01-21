@@ -32,6 +32,17 @@ public class ActionService implements Serializable {
 	@JoinColumn(name = "idAction")
 	private Action action;
 
+	public ActionService() {
+
+	}
+
+	public ActionService(Long id, ServiceType serviceType, Action action) {
+		super();
+		this.id = id;
+		this.serviceType = serviceType;
+		this.action = action;
+	}
+
 	public ServiceType getServiceType() {
 		return serviceType;
 	}

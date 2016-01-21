@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "DeviceType")
 @SequenceGenerator(name = "SEQ_DEVICETYPE", sequenceName = "SEQ_DEVICETYPE")
@@ -19,6 +20,16 @@ public class DeviceType implements Serializable {
 
 	@Column(name = "deviceType")
 	private String deviceType;
+
+	public DeviceType() {
+
+	}
+
+	public DeviceType(Long id, String deviceType) {
+		super();
+		this.id = id;
+		this.deviceType = deviceType;
+	}
 
 	public Long getId() {
 		return this.id;

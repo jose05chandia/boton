@@ -1,4 +1,5 @@
 package data;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
 @Entity
 @Table(name = "Log")
 @SequenceGenerator(name = "SEQ_LOG", sequenceName = "SEQ_LOG")
@@ -30,6 +33,18 @@ public class Log implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCustomer")
 	private Customer customer;
+
+	public Log() {
+
+	}
+
+	public Log(Long id, Date dateTime, String description, Customer customer) {
+		super();
+		this.id = id;
+		this.dateTime = dateTime;
+		this.description = description;
+		this.customer = customer;
+	}
 
 	public Customer getCustomer() {
 		return customer;

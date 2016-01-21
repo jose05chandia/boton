@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "File")
 @SequenceGenerator(name = "SEQ_FILE", sequenceName = "SEQ_FILE")
@@ -35,6 +36,21 @@ public class File implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idAlert")
 	private Alert alert;
+
+	public File() {
+
+	}
+
+	public File(Long id, String file, String description, int size,
+			String mIME, Alert alert) {
+		super();
+		this.id = id;
+		this.file = file;
+		this.description = description;
+		this.size = size;
+		MIME = mIME;
+		this.alert = alert;
+	}
 
 	public Alert getAlert() {
 		return alert;

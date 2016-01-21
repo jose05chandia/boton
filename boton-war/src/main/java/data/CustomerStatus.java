@@ -24,6 +24,16 @@ public class CustomerStatus implements Serializable {
 	@Column(name = "customerStatus")
 	private String customerStatus;
 
+	public CustomerStatus() {
+
+	}
+
+	public CustomerStatus(Long id, String customerStatus) {
+		super();
+		this.id = id;
+		this.customerStatus = customerStatus;
+	}
+
 	public Long getId() {
 		return this.id;
 	}

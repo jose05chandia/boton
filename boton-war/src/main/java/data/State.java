@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "State")
 @SequenceGenerator(name = "SEQ_STATE", sequenceName = "SEQ_STATE")
@@ -20,6 +21,16 @@ public class State implements Serializable {
 
 	@Column(name = "state")
 	private String state;
+
+	public State() {
+
+	}
+
+	public State(Long id, String state) {
+		super();
+		this.id = id;
+		this.state = state;
+	}
 
 	public Long getId() {
 		return this.id;

@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "SocialNetwork")
 @SequenceGenerator(name = "SEQ_SOCIALNETWORK", sequenceName = "SEQ_SOCIALNETWORK")
@@ -32,6 +33,20 @@ public class SocialNetwork implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCustomer")
 	private Customer customer;
+
+	public SocialNetwork() {
+
+	}
+
+	public SocialNetwork(Long id, int idProvider, String provider,
+			String description, Customer customer) {
+		super();
+		this.id = id;
+		this.idProvider = idProvider;
+		this.provider = provider;
+		this.description = description;
+		this.customer = customer;
+	}
 
 	public Customer getCustomer() {
 		return customer;

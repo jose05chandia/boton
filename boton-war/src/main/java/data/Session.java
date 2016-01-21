@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Session")
 @SequenceGenerator(name = "SEQ_SESSION", sequenceName = "SEQ_SESSION")
@@ -33,6 +34,20 @@ public class Session implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idDevice")
 	private Device device;
+
+	public Session() {
+
+	}
+
+	public Session(Long id, Date dateTimeLogin, Date dateTimeExpired,
+			String autentication, Device device) {
+		super();
+		this.id = id;
+		this.dateTimeLogin = dateTimeLogin;
+		this.dateTimeExpired = dateTimeExpired;
+		this.autentication = autentication;
+		this.device = device;
+	}
 
 	public Device getDevice() {
 		return device;

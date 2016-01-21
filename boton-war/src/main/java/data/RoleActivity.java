@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "RoleActivity")
 @SequenceGenerator(name = "SEQ_ROLEACTIVITY", sequenceName = "SEQ_ROLEACTIVITY")
@@ -26,6 +27,17 @@ public class RoleActivity implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idActivity")
 	private Activity activity;
+
+	public RoleActivity() {
+
+	}
+
+	public RoleActivity(Long id, Role role, Activity activity) {
+		super();
+		this.id = id;
+		this.role = role;
+		this.activity = activity;
+	}
 
 	public Role getRole() {
 		return role;
